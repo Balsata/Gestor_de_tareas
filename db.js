@@ -35,7 +35,7 @@ Usuario.hasOne(Tarea, { as: "creador", foreignkey: "id" });
 //Usuario.hasMany(Usuario); // A HasMany B
 // Usuario.belongsToMany(Usuario, { through: 'lider_colaborador' });
 
-exports.initDatabase = async function () {
+exports.iniciarBaseDatos = async function () {
     await connect();
     await sync();
 };

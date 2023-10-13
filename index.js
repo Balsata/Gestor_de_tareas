@@ -1,17 +1,19 @@
-const { initDatabase } = require("./db");
-initDatabase();
+require("dotenv").config();
+
+const { iniciarBaseDatos } = require("./db");
+iniciarBaseDatos();
 
 const express = require("express");
 const app = express();
 
 app.use(express.json());
 
-const userRouter = require("./routers/usuario");
+const usuarioRouter = require("./routers/usuario");
 
 //Rutas
-app.use(userRouter);
+app.use("/users", usuarioRouter);
 
 
-app.listen(8080, function () {
-    console.log("> Escuchando puerto 8080");
+app.listen(process.env.SERVER_PORT, function () {
+    console.log("> Escuchando puerto " + process.env.SERVER_PORT);
 });

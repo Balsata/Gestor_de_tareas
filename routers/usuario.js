@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { createUser } = require("../controllers/usuario");
+const { crearUsuario } = require("../controllers/usuario");
+const joiValidator = require("../middlewares/joi");
+const { createUserSchema } = require("../validations/usuario");
 
 
-router.post("/users", createUser);
+router.post("/", joiValidator.body(createUserSchema), crearUsuario);
 
 module.exports = router;
