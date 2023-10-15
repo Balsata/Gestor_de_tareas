@@ -2,11 +2,6 @@ const { DataTypes } = require("sequelize");
 const { sequelize } = require("./sequelize");
 
 module.exports = sequelize.define("cat_tipo", {
-    uuid: {
-        type: DataTypes.UUID,
-        unique: true,
-    },
-
     nombre: {
         type: DataTypes.STRING(50),
         allowNull: false,

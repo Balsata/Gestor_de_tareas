@@ -2,11 +2,6 @@ const { DataTypes } = require("sequelize");
 const { sequelize } = require("./sequelize");
 
 module.exports = sequelize.define("usuario", {
-    uuid: {
-        type: DataTypes.UUID,
-        unique: true,
-    },
-
     usuario: {
         type: DataTypes.STRING(10),
         allowNull: false,

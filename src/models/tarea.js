@@ -2,11 +2,6 @@ const { DataTypes } = require("sequelize");
 const { sequelize } = require("./sequelize");
 
 module.exports = sequelize.define("tarea", {
-    uuid: {
-        type: DataTypes.UUID,
-        unique: true,
-    },
-
     //nombre_tarea:{
     //     type:DataTypes.STRING(100),
     //     allowNull:false,

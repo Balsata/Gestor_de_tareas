@@ -1,26 +1,31 @@
 require("dotenv").config();
-
 const { iniciarBaseDatos } = require("./db");
+const express = require("express");
+
+const app = express();
+const PORT = process.env.SERVER_PORT || 8000; // Asegurando que SERVER_PORT esté configurado
+
+//Iniciar base de datos
 iniciarBaseDatos();
 
-const express = require("express");
-const app = express();
-
+// Middleware para recibir JSON
 app.use(express.json());
 
+
 const usuarioRouter = require("./routers/usuario");
+const loginRouter = require("./routers/auth")
+//Rutas
+app.use("/users", usuarioRouter);
+app.use("/login", loginRouter);
+
 
 const validationError = require("./middlewares/validation-error");
 const unknownError = require("./middlewares/unknown-error");
-
-//Rutas
-app.use("/users", usuarioRouter);
-
-// Manejo de errores
+// Middleware de manejo de errores
 app.use(validationError);
 app.use(unknownError);
 
 
-app.listen(process.env.SERVER_PORT, function () {
-    console.log("> Escuchando puerto " + process.env.SERVER_PORT);
+app.listen(PORT, () => {
+    console.log(`> Escuchando en el puerto ${PORT}`);
 });
