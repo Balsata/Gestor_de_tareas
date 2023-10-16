@@ -2,16 +2,11 @@ const { DataTypes } = require("sequelize");
 const { sequelize } = require("./sequelize");
 
 module.exports = sequelize.define("tarea", {
-    /*uuid: {
-        type: DataTypes.UUID,
-        unique: true,
-    },*/
 
     descripcion_mensaje: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(500),
         allowNull: false,
     },
-
 
     fecha_inicio: {
         type: DataTypes.DATE,
