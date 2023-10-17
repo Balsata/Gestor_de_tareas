@@ -24,6 +24,6 @@ exports.login = async function (request, response) {
     );
 
     response.status(200).json({
-        jwt: token,
+        Token: token,
     });
 };

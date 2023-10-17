@@ -2,7 +2,7 @@ const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize({
     dialect: "sqlite",
-    storage: "../sisgeta.sqlite3",
+    storage: "../sisgeta.db",
 });
 
 
@@ -20,7 +20,7 @@ exports.connect = async function () {
 
 exports.sync = async function () {
     try {
-        await sequelize.sync({force: true});
+        await sequelize.sync({ force: true });
         console.log("> Base de datos actualizada");
     } catch (e) {
         console.error("> no se puede actualizar la base de datos");
