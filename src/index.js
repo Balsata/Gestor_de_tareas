@@ -13,10 +13,13 @@ app.use(express.json());
 
 
 const usuarioRouter = require("./routers/usuario");
-const loginRouter = require("./routers/auth")
+const loginRouter = require("./routers/auth");
+const taskRouter = require("./routers/tarea");
+
 //Rutas
 app.use("/users", usuarioRouter);
 app.use("/login", loginRouter);
+app.use("/tasks", taskRouter);
 
 
 const validationError = require("./middlewares/validation-error");
